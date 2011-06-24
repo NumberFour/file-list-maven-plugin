@@ -4,11 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.DirectoryScanner;
 
@@ -63,10 +65,25 @@ public class ListMojo extends AbstractMojo {
      */
     public String[] excludes;
 
+    /**
+     * Whether to ignore case
+     * 
+     * @parameter
+     */
+    public boolean ignoreCase;
+    
     public void execute() throws MojoExecutionException, MojoFailureException {
         FileWriter fileWriter = null;
         try {
 
+            Log log = getLog();
+            log.info("");
+            log.info("Creating file list ");
+            log.info("Basedir:  "+ baseDir);
+            log.info("Output:   "+ outputFile);
+            log.info("Includes: "+ Arrays.toString(includes));
+            log.info("Exludes:  "+ Arrays.toString(excludes));
+            
             DirectoryScanner scanner = new DirectoryScanner();
             scanner.setBasedir(baseDir);
             scanner.setIncludes(includes);
@@ -77,7 +94,8 @@ public class ListMojo extends AbstractMojo {
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String json = gson.toJson(includedFiles);
-            System.out.println(json);
+            
+            log.info("File list contains "+includedFiles.length+" files");
 
             fileWriter = new FileWriter(outputFile);
             fileWriter.write(json);
