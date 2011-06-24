@@ -6,7 +6,13 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <name>File Listing Plugin</name>
-        
+    
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+    
     <developers>
         <developer>
             <id>lenni</id>
@@ -19,12 +25,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     
-    <url>https://github.com/NumberFour/jscoverage-cobertura-maven-plugin</url>
+    <url>https://github.com/NumberFour/jscoverage-cobertura-maven-plugin#readme</url>
 
     <scm>
-        <connection>scm:git:git://github.com/NumberFour/jscoverage-cobertura-maven-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:NumberFour/jscoverage-cobertura-maven-plugin.git</developerConnection>
-        <url>https://github.com/NumberFour/jscoverage-cobertura-maven-plugin</url>
+        <connection>scm:git:git://github.com/NumberFour/file-list-maven-plugin.git</connection>
+        <developerConnection>git@github.com:NumberFour/file-list-maven-plugin.git</developerConnection>
+        <url>https://github.com/NumberFour/file-list-maven-plugin#readme</url>
     </scm>
 
     <licenses>
@@ -138,21 +144,6 @@
     </reporting>
 
     <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>Hosted Release</name>
-            <url>
-http://deployment:deployment@repository.corp.numberfour.eu/nexus/content/repositories/releases
-            </url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Hosted Snapshot</name>
-            <url>
-http://deployment:deployment@repository.corp.numberfour.eu/nexus/content/repositories/snapshots
-            </url>
-            <uniqueVersion>false</uniqueVersion>
-        </snapshotRepository>
         <site>
             <id>gh-pages</id>
             <!-- This gets automatically pushed to the gh-pages branch. -->
