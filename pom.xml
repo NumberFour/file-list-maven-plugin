@@ -25,7 +25,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     
-    <url>https://github.com/NumberFour/jscoverage-cobertura-maven-plugin#readme</url>
+    <url>https://github.com/NumberFour/file-list-maven-plugin#readme</url>
 
     <scm>
         <connection>scm:git:git://github.com/NumberFour/file-list-maven-plugin.git</connection>
@@ -46,11 +46,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>1.7.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jdom</groupId>
-            <artifactId>jdom</artifactId>
-            <version>1.1</version>
         </dependency>
 
         <!--Maven plugin artifacts-->
