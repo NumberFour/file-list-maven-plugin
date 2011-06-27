@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>File Listing Plugin - 
-    file-list:list</title>
+    file-list:help</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -60,16 +60,21 @@
       <div id="contentBox">
         
   
-    <div class="section"><h2>file-list:list<a name="file-list:list"></a></h2>
+    <div class="section"><h2>file-list:help<a name="file-list:help"></a></h2>
       <p><b>Full name</b>:</p>
-      <p>eu.numberfour.maven.plugins:file-list-maven-plugin:1.0.0-SNAPSHOT:list</p>
+      <p>eu.numberfour.maven.plugins:file-list-maven-plugin:1.0.0-SNAPSHOT:help</p>
       <p><b>Description</b>:</p>
-      <div><p>Creates a JSON formatted list of files form a base directory,
-and optional includes and excludes.</p></div>
+      <div>Display help information on file-list-maven-plugin.<br />
+ Call 
+
+<div><pre>
+  mvn file-list:help -Ddetail=true -Dgoal=&lt;goal-name&gt;
+</pre></div>
+
+to display parameter details.</div>
       <p><b>Attributes</b>:</p>
       <ul>
-        <li>Requires a Maven project to be executed.</li>
-        <li>Requires dependency resolution of artifacts in scope: <tt>compile</tt>.</li>
+        <li>The goal is thread-safe and supports parallel builds.</li>
       </ul>
       <div class="section"><h3>Optional Parameters<a name="Optional_Parameters"></a></h3>
         <table class="bodyTable" border="0">
@@ -80,65 +85,63 @@ and optional includes and excludes.</p></div>
             <th>Description</th>
           </tr>
           <tr class="b">
-            <td><b><a href="#baseDir">baseDir</a></b></td>
-            <td><tt>String</tt></td>
-            <td><tt>-</tt></td>
-            <td>Base directory of the scanning process<br /><b>Default value is</b>: <tt>${basedir}/target/</tt>.</td>
-          </tr>
-          <tr class="a">
-            <td><b><a href="#caseSensitive">caseSensitive</a></b></td>
+            <td><b><a href="#detail">detail</a></b></td>
             <td><tt>boolean</tt></td>
             <td><tt>-</tt></td>
-            <td>Whether to ignore case<br /></td>
-          </tr>
-          <tr class="b">
-            <td><b><a href="#excludes">excludes</a></b></td>
-            <td><tt>String[]</tt></td>
-            <td><tt>-</tt></td>
-            <td>Ant-style exclude pattern. For example **.* is all files<br /></td>
+            <td>If <tt>true</tt>, display all settable properties for each
+goal.<br /><b>Default value is</b>: <tt>false</tt>.</td>
           </tr>
           <tr class="a">
-            <td><b><a href="#includes">includes</a></b></td>
-            <td><tt>String[]</tt></td>
-            <td><tt>-</tt></td>
-            <td>Ant-style include pattern. For example **.* is all files<br /></td>
-          </tr>
-          <tr class="b">
-            <td><b><a href="#outputFile">outputFile</a></b></td>
+            <td><b><a href="#goal">goal</a></b></td>
             <td><tt>String</tt></td>
             <td><tt>-</tt></td>
-            <td>File into which to save the output of the transformation.<br /><b>Default value is</b>: <tt>${basedir}/target/file-list.json</tt>.</td>
+            <td>The name of the goal for which to show help. If unspecified, all
+goals will be displayed.<br /></td>
+          </tr>
+          <tr class="b">
+            <td><b><a href="#indentSize">indentSize</a></b></td>
+            <td><tt>int</tt></td>
+            <td><tt>-</tt></td>
+            <td>The number of spaces per indentation level, should be positive.<br /><b>Default value is</b>: <tt>2</tt>.</td>
+          </tr>
+          <tr class="a">
+            <td><b><a href="#lineLength">lineLength</a></b></td>
+            <td><tt>int</tt></td>
+            <td><tt>-</tt></td>
+            <td>The maximum length of a display line, should be positive.<br /><b>Default value is</b>: <tt>80</tt>.</td>
           </tr>
         </table>
       </div>
       <div class="section"><h3>Parameter Details<a name="Parameter_Details"></a></h3>
-        <p><b><a name="baseDir">baseDir</a>:</b></p>
-        <div>Base directory of the scanning process</div>
-        <ul>
-          <li><b>Type</b>: <tt>java.lang.String</tt></li>
-          <li><b>Required</b>: <tt>No</tt></li>
-          <li><b>Default</b>: <tt>${basedir}/target/</tt></li>
-        </ul><hr /><p><b><a name="caseSensitive">caseSensitive</a>:</b></p>
-        <div>Whether to ignore case</div>
+        <p><b><a name="detail">detail</a>:</b></p>
+        <div>If <tt>true</tt>, display all settable properties for each
+goal.</div>
         <ul>
           <li><b>Type</b>: <tt>boolean</tt></li>
           <li><b>Required</b>: <tt>No</tt></li>
-        </ul><hr /><p><b><a name="excludes">excludes</a>:</b></p>
-        <div>Ant-style exclude pattern. For example **.* is all files</div>
-        <ul>
-          <li><b>Type</b>: <tt>java.lang.String[]</tt></li>
-          <li><b>Required</b>: <tt>No</tt></li>
-        </ul><hr /><p><b><a name="includes">includes</a>:</b></p>
-        <div>Ant-style include pattern. For example **.* is all files</div>
-        <ul>
-          <li><b>Type</b>: <tt>java.lang.String[]</tt></li>
-          <li><b>Required</b>: <tt>No</tt></li>
-        </ul><hr /><p><b><a name="outputFile">outputFile</a>:</b></p>
-        <div>File into which to save the output of the transformation.</div>
+          <li><b>Expression</b>: <tt>${detail}</tt></li>
+          <li><b>Default</b>: <tt>false</tt></li>
+        </ul><hr /><p><b><a name="goal">goal</a>:</b></p>
+        <div>The name of the goal for which to show help. If unspecified, all
+goals will be displayed.</div>
         <ul>
           <li><b>Type</b>: <tt>java.lang.String</tt></li>
           <li><b>Required</b>: <tt>No</tt></li>
-          <li><b>Default</b>: <tt>${basedir}/target/file-list.json</tt></li>
+          <li><b>Expression</b>: <tt>${goal}</tt></li>
+        </ul><hr /><p><b><a name="indentSize">indentSize</a>:</b></p>
+        <div>The number of spaces per indentation level, should be positive.</div>
+        <ul>
+          <li><b>Type</b>: <tt>int</tt></li>
+          <li><b>Required</b>: <tt>No</tt></li>
+          <li><b>Expression</b>: <tt>${indentSize}</tt></li>
+          <li><b>Default</b>: <tt>2</tt></li>
+        </ul><hr /><p><b><a name="lineLength">lineLength</a>:</b></p>
+        <div>The maximum length of a display line, should be positive.</div>
+        <ul>
+          <li><b>Type</b>: <tt>int</tt></li>
+          <li><b>Required</b>: <tt>No</tt></li>
+          <li><b>Expression</b>: <tt>${lineLength}</tt></li>
+          <li><b>Default</b>: <tt>80</tt></li>
         </ul>
       </div>
     </div>
