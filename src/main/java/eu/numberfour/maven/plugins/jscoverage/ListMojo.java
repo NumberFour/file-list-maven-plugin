@@ -70,7 +70,7 @@ public class ListMojo extends AbstractMojo {
      * 
      * @parameter
      */
-    public boolean ignoreCase;
+    public boolean caseSensitive;
     
     public void execute() throws MojoExecutionException, MojoFailureException {
         FileWriter fileWriter = null;
@@ -88,6 +88,7 @@ public class ListMojo extends AbstractMojo {
             scanner.setBasedir(baseDir);
             scanner.setIncludes(includes);
             scanner.setExcludes(excludes);
+            scanner.setCaseSensitive(caseSensitive);
             scanner.scan();
 
             String[] includedFiles = scanner.getIncludedFiles();
