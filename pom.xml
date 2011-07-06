@@ -29,7 +29,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/NumberFour/file-list-maven-plugin.git</connection>
-        <developerConnection>git@github.com:NumberFour/file-list-maven-plugin.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:NumberFour/file-list-maven-plugin.git</developerConnection>
         <url>https://github.com/NumberFour/file-list-maven-plugin#readme</url>
     </scm>
 
