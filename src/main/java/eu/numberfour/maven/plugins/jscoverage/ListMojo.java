@@ -127,7 +127,7 @@ public class ListMojo extends AbstractMojo {
                 suiteContent.append(NEW_LINE);
                 boolean firstTime = true;
                 for (String string : includedFiles) {
-                    suiteContent.append("\t");
+                    // suiteContent.append("\t");
                     if (firstTime) {
                         firstTime = false;
                     } else {
