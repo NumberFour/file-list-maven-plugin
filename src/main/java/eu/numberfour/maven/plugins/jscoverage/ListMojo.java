@@ -30,6 +30,7 @@ import com.google.gson.GsonBuilder;
 public class ListMojo extends AbstractMojo {
 
     public static final String NEW_LINE = System.getProperty("line.separator");
+    public static final String FILE_SEPARATOR = System.getProperty("file.separator");
 
     /**
      * The Maven project.
@@ -127,13 +128,13 @@ public class ListMojo extends AbstractMojo {
                 suiteContent.append(NEW_LINE);
                 boolean firstTime = true;
                 for (String string : includedFiles) {
-                    // suiteContent.append("\t");
+                    suiteContent.append("\t");
                     if (firstTime) {
                         firstTime = false;
                     } else {
                         suiteContent.append(",");
                     }
-                    suiteContent.append(string.replaceAll("/", ".").replaceAll("java", "class"));
+                    suiteContent.append(string.replaceAll(FILE_SEPARATOR, ".").replaceAll("java", "class"));
                     suiteContent.append(NEW_LINE);
                 }
                 suiteContent.append("} )");
