@@ -134,7 +134,12 @@ public class ListMojo extends AbstractMojo {
                     } else {
                         suiteContent.append(",");
                     }
-                    suiteContent.append(string.replaceAll(FILE_SEPARATOR, ".").replaceAll("java", "class"));
+                    String pattern = FILE_SEPARATOR;
+                    if ("\\".equals(FILE_SEPARATOR)) {
+                        // we have to quote the back slash
+                        pattern = "\\" + FILE_SEPARATOR;
+                    }
+                    suiteContent.append(string.replaceAll(pattern, ".").replaceAll("java", "class"));
                     suiteContent.append(NEW_LINE);
                 }
                 suiteContent.append("} )");
